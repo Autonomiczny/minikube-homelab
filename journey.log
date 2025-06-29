@@ -1,1 +1,84 @@
- 
+# Kubernetes Home Lab Project Plan
+
+This document outlines the phased approach to building the ultimate Kubernetes home lab for a future platform engineer.
+
+---
+
+### Phase 0: The Foundation - Hardware & Core OS
+
+**Goal:** Establish a solid physical or virtualized base for the Kubernetes cluster.
+
+1.  **Hardware:**
+    *   **Path A (Budget):** 1-2 old PCs/laptops (4+ cores, 16GB+ RAM).
+    *   **Path B (Recommended):** 2-3 mini-PCs (Intel NUCs, Beelink, etc.).
+    *   **Path C (Powerhouse):** 1 powerful desktop with a hypervisor (Proxmox/ESXi).
+2.  **Operating System:**
+    *   **Choice:** Ubuntu Server 22.04 LTS on all nodes.
+    *   **Configuration:** Static IPs or DHCP reservations.
+3.  **Core Tooling:**
+    *   **Workstation:** Install `kubectl` and `helm`.
+
+---
+
+### Phase 1: The "Crawl" Phase - A Robust Kubernetes Cluster
+
+**Goal:** Get a clean, conformant, and production-ready Kubernetes cluster running.
+
+1.  **Kubernetes Distribution:**
+    *   **Tool:** K3s (via k3s-ansible).
+    *   **Why:** Lightweight, certified, easy to automate, and includes sane defaults.
+2.  **Storage:**
+    *   **Tool:** Longhorn.
+    *   **Why:** Cloud-native, distributed block storage that is easy to manage via a Helm chart.
+
+---
+
+### Phase 2: The "Walk" Phase - The Platform Ecosystem
+
+**Goal:** Add the core services that define a modern, automated platform using GitOps.
+
+1.  **GitOps Controller:**
+    *   **Tool:** Argo CD.
+    *   **Why:** To make Git the single source of truth for the cluster's state. All configurations will be managed via a Git repository.
+2.  **Observability - The PLG Stack:**
+    *   **Tools:** Prometheus, Loki, Grafana.
+    *   **Why:** A lightweight, powerful, and Kubernetes-native stack for metrics (Prometheus), logs (Loki), and visualization (Grafana).
+3.  **Ingress & Certificates:**
+    *   **Tools:** Traefik (bundled with K3s) & Let's Encrypt (via cert-manager).
+    *   **Why:** To securely expose services to the internet with automatic HTTPS.
+
+---
+
+### Phase 3: The "Run" Phase - Advanced & Secure Operations
+
+**Goal:** Implement advanced networking, security, and operational best practices.
+
+1.  **Service Mesh:**
+    *   **Tool:** Istio.
+    *   **Why:** To gain fine-grained control over traffic, enhance observability, and enforce security policies like mTLS between services.
+2.  **Security:**
+    *   **Tools:** Kyverno & Trivy.
+    *   **Why:** To enforce cluster policies (Kyverno) and scan for container and manifest vulnerabilities (Trivy).
+3.  **Secret Management:**
+    *   **Tool:** External Secrets Operator.
+    *   **Why:** To securely manage secrets by syncing them from a dedicated secret manager (like Vault or a cloud provider's service) instead of storing them in Git.
+
+---
+## Journey Log
+
+**Date:** 2025-06-29
+
+1.  **Project Setup:**
+    *   Created project directory: `C:\Users\auton\k8s-home-lab`
+    *   Created log file: `journey.log`
+    *   Initialized a Git repository in the project directory.
+    *   Committed the initial `journey.log`.
+
+2.  **Minikube & Argo CD Setup:**
+    *   Started the Minikube cluster.
+    *   Attempted to install Argo CD, but encountered issues with a previous installation.
+    *   Cleaned up the old Argo CD installation by deleting the resources and the `argocd` namespace.
+    *   Performed a clean installation of Argo CD from the official manifest.
+    *   Verified that all Argo CD pods are running successfully.
+    *   Retrieved the initial admin password for Argo CD.
+    *   Saved the project plan to the log file.
