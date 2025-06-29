@@ -82,3 +82,10 @@ This document outlines the phased approach to building the ultimate Kubernetes h
     *   Verified that all Argo CD pods are running successfully.
     *   Retrieved the initial admin password for Argo CD.
     *   Saved the project plan to the log file.
+
+3.  **Argo CD Configuration:**
+    *   Successfully logged into Argo CD CLI using the admin password.
+    *   Added the GitHub repository (`https://github.com/Autonomiczny/minikube-homelab`) to Argo CD.
+    *   Created the `manifests` directory locally: `C:\Users\auton\k8s-home-lab\manifests`.
+    *   Created a sample `nginx-deployment.yaml` file inside the `manifests` directory.
+    *   Attempted to commit and push the `manifests` directory to the GitHub repository (encountered issues with git commit command).
