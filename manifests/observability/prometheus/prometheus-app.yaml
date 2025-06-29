@@ -7,14 +7,15 @@ spec:
   project: default
   source:
     repoURL: https://prometheus-community.github.io/helm-charts
-    targetRevision: 15.19.0 # You might want to specify a specific chart version
-    chart: prometheus
+    targetRevision: 75.6.1 # Updated to a valid version for kube-prometheus-stack
+    chart: kube-prometheus-stack # Updated chart name
   destination:
     server: https://kubernetes.default.svc
-    namespace: monitoring # Deploy Prometheus into a 'monitoring' namespace
+    namespace: monitoring
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
-      - CreateNamespace=true # Automatically create the 'monitoring' namespace if it doesn't exist
+      - CreateNamespace=true
+      - Replace=true
