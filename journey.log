@@ -88,4 +88,8 @@ This document outlines the phased approach to building the ultimate Kubernetes h
     *   Added the GitHub repository (`https://github.com/Autonomiczny/minikube-homelab`) to Argo CD.
     *   Created the `manifests` directory locally: `C:\Users\auton\k8s-home-lab\manifests`.
     *   Created a sample `nginx-deployment.yaml` file inside the `manifests` directory.
-    *   Attempted to commit and push the `manifests` directory to the GitHub repository (encountered issues with git commit command).
+    *   Committed and pushed the `manifests` directory to the GitHub repository.
+
+4.  **Argo CD Application Setup for Automated Deployment:**
+    *   Created `nginx-app.yaml` to define an Argo CD Application resource. This application points to the `manifests` directory in the GitHub repository and configures automated synchronization.
+    *   Applied `nginx-app.yaml` to the Kubernetes cluster using `kubectl apply -f C:/Users/auton/k8s-home-lab/nginx-app.yaml`. This enables Argo CD to automatically deploy changes from the Git repository to the cluster.
