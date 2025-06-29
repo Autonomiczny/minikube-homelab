@@ -33,13 +33,13 @@ graph TD
         end
     end
 
-    A -- "1. git push (YAML manifests)" --> B
-    C -- "2. Watches Repo for Changes" --> B
-    C -- "3. Applies Manifests to Cluster" --> D
-    C -- "3. Applies Manifests to Cluster" --> E
-    C -- "3. Applies Manifests to Cluster" --> F
-    C -- "3. Applies Manifests to Cluster" --> G
-    C -- "3. Applies Manifests to Cluster" --> H
+    A -- "git push (YAML manifests)" --> B
+    C -- "Watches Repo for Changes" --> B
+    C -- "Applies Manifests to Cluster" --> D
+    C -- "Applies Manifests to Cluster" --> E
+    C -- "Applies Manifests to Cluster" --> F
+    C -- "Applies Manifests to Cluster" --> G
+    C -- "Applies Manifests to Cluster" --> H
     C -- "3. Applies Manifests to Cluster" --> I
     C -- "3. Applies Manifests to Cluster" --> J
 
