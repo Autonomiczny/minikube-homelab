@@ -103,3 +103,9 @@ This document outlines the phased approach to building the ultimate Kubernetes h
     *   Created `C:\Users\auton\k8s-home-lab\manifests\observability\grafana` directory.
     *   Created `grafana-app.yaml` to define an Argo CD Application for Grafana, pointing to the `grafana.github.io/helm-charts` for Grafana.
     *   Committed and pushed all new observability-related manifests to the GitHub repository, enabling Argo CD to automatically deploy these components.
+
+6.  **Refactor Nginx Application Manifest Location:**
+    *   Moved `nginx-app.yaml` from the root of the repository to `C:\Users\auton\k8s-home-lab\manifests\nginx-app.yaml`.
+    *   Updated the `path` in `nginx-app.yaml` from `manifests` to `.` to reflect its new location relative to the manifests it manages.
+    *   Applied the updated `nginx-app.yaml` to the Kubernetes cluster.
+    *   Committed and pushed these structural changes to the GitHub repository.
