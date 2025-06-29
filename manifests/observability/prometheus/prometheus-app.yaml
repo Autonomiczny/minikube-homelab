@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://prometheus-community.github.io/helm-charts
+    targetRevision: 15.19.0 # You might want to specify a specific chart version
+    chart: prometheus
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring # Deploy Prometheus into a 'monitoring' namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true # Automatically create the 'monitoring' namespace if it doesn't exist
