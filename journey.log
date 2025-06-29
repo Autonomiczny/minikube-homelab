@@ -93,3 +93,13 @@ This document outlines the phased approach to building the ultimate Kubernetes h
 4.  **Argo CD Application Setup for Automated Deployment:**
     *   Created `nginx-app.yaml` to define an Argo CD Application resource. This application points to the `manifests` directory in the GitHub repository and configures automated synchronization.
     *   Applied `nginx-app.yaml` to the Kubernetes cluster using `kubectl apply -f C:/Users/auton/k8s-home-lab/nginx-app.yaml`. This enables Argo CD to automatically deploy changes from the Git repository to the cluster.
+
+5.  **Observability Stack Deployment (Prometheus, Loki, Grafana):**
+    *   Created `C:\Users\auton\k8s-home-lab\manifests\observability` directory.
+    *   Created `C:\Users\auton\k8s-home-lab\manifests\observability\prometheus` directory.
+    *   Created `prometheus-app.yaml` to define an Argo CD Application for Prometheus, pointing to the `prometheus-community` Helm chart.
+    *   Created `C:\Users\auton\k8s-home-lab\manifests\observability\loki` directory.
+    *   Created `loki-app.yaml` to define an Argo CD Application for Loki, pointing to the `grafana.github.io/helm-charts` for Loki.
+    *   Created `C:\Users\auton\k8s-home-lab\manifests\observability\grafana` directory.
+    *   Created `grafana-app.yaml` to define an Argo CD Application for Grafana, pointing to the `grafana.github.io/helm-charts` for Grafana.
+    *   Committed and pushed all new observability-related manifests to the GitHub repository, enabling Argo CD to automatically deploy these components.
